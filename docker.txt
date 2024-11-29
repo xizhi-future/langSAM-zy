@@ -1,0 +1,76 @@
+docker pull klee/klee:2.1
+1476395008 738197504
+2130706432 16777216
+-16775193 16775193
+16843009 16843009
+# 配置节点
+node_1 = Node("银行", name="银行A")
+node_2 = Node("客户", name="客户小赵")
+# 建立节点至neo4j
+graph.create(node_1)
+graph.create(node_2)
+link = Graph('bolt://localhost:7687', auth=("neo4j", "123456"))
+disease_dict
+
+# 建立关系
+node_1_to_node_2 = Relationship(node_1, '放贷', node_2)
+node_2_to_node_1 = Relationship(node_2, '借款', node_1)
+# 创建至neo4j
+graph.create(node_1_to_node_2)
+graph.create(node_2_to_node_1)
+
+docker run --name=klee2.1 -ti --ulimit='stack=-1:-1' klee/klee:2.1
+clang -I ../../include -emit-llvm -c -g -O0 -Xclang -disable-O0-optnone get_sign.c
+export LD LIBRARY PATH=/h
+export LD_LIBRARY_PATH=/home/klee/klee_build/lib/:$LD_LIBRARY_PATH
+gcc -I ../../include -L /home/klee/klee_build/lib/ test.c -lkleeRuntest
+KTEST_FILE=klee-last/test00000N.ktest ./a.out
+
+docker exec -it '容器名称' bash
+#或
+docker exec -it '容器ID' bash
+
+
+docker run -p 8082:8080 -d test:latest
+docker build -t simple . 
+CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build .
+
+
+创建临时容器
+    $ docker run –rm -ti –ulimit=’stack=-1:-1’ klee/klee
+
+$ docker run –rm -ti -v /home/dragonegg/klee:/home/klee –ulimit=’stack=-1:-1’ klee/klee
+
+    创建持久容器
+    $ docker run -ti –name=test_volume_container –ulimit=’stack=-1:-1’ klee/klee
+
+    退出容器
+    $ exit
+
+    查看当前docker中正在运行的容器
+    $ docker ps
+
+    查看当前docker中已有的容器(包括正在运行和停止运行的容器）
+    $ docker ps -a
+
+    重启容器
+    $ docker start -ai test_volume_container
+
+    删除容器
+    $ docker rm test_volume_container
+
+$ docker rm test_volume_container
+
+挂载主机目录到容器上
+$ docker run -ti -v /home/dragonegg/klee:/home/test –name=test_volume_container –ulimit=’stack=-1:-1’ klee/klee
+
+查看某个容器中的挂载等信息
+$ docker inspect test_volume_container
+
+在容器上删除所挂在的主机目录
+
+在容器中编译程序
+clang−emit−llvm−g−ctest.c−otest.bc clang -emit-llvm -g -c sort.c -o sort.bc
+
+符号执行分析
+$ klee –libc=uclibc –posix-runtime sort.bc 
